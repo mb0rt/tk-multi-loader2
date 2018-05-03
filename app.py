@@ -1,11 +1,11 @@
 # Copyright (c) 2015 Shotgun Software Inc.
-# 
+#
 # CONFIDENTIAL AND PROPRIETARY
-# 
-# This work is provided "AS IS" and subject to the Shotgun Pipeline Toolkit 
+#
+# This work is provided "AS IS" and subject to the Shotgun Pipeline Toolkit
 # Source Code License included in this distribution package. See LICENSE.
-# By accessing, using, copying or modifying this work you indicate your 
-# agreement to the Shotgun Pipeline Toolkit Source Code License. All rights 
+# By accessing, using, copying or modifying this work you indicate your
+# agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
 # not expressly granted therein are reserved by Shotgun Software Inc.
 
 """
@@ -20,7 +20,7 @@ import os
 
 
 class MultiLoader(sgtk.platform.Application):
-    
+
     def init_app(self):
         """
         Called as the application is being initialized
@@ -32,7 +32,7 @@ class MultiLoader(sgtk.platform.Application):
             return
 
         tk_multi_loader = self.import_module("tk_multi_loader")
-        
+
         # register command
         cb = lambda : tk_multi_loader.show_dialog(self)
         menu_caption = "%s..." % self.get_setting("menu_name")
@@ -77,3 +77,8 @@ class MultiLoader(sgtk.platform.Application):
         """
         tk_multi_loader = self.import_module("tk_multi_loader")
         return tk_multi_loader.open_publish_browser(self, title, action, publish_types)
+
+
+    def show_file_load_dlg( self ):
+        tk_multi_loader = self.import_module("tk_multi_loader")
+        tk_multi_loader.show_dialog(self)
