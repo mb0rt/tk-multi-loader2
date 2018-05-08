@@ -1,11 +1,11 @@
 # Copyright (c) 2015 Shotgun Software Inc.
-# 
+#
 # CONFIDENTIAL AND PROPRIETARY
-# 
-# This work is provided "AS IS" and subject to the Shotgun Pipeline Toolkit 
+#
+# This work is provided "AS IS" and subject to the Shotgun Pipeline Toolkit
 # Source Code License included in this distribution package. See LICENSE.
-# By accessing, using, copying or modifying this work you indicate your 
-# agreement to the Shotgun Pipeline Toolkit Source Code License. All rights 
+# By accessing, using, copying or modifying this work you indicate your
+# agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
 # not expressly granted therein are reserved by Shotgun Software Inc.
 
 """
@@ -30,7 +30,8 @@ PUBLISHED_FILES_FIELDS = ["name",
                           "created_at",
                           "version", # note: not supported on TankPublishedFile so always None
                           "version.Version.sg_status_list",
-                          "created_by.HumanUser.image"
+                          "created_by.HumanUser.image",
+                          'upstream_published_files', 'task.Task.step', 'sg_version_type', 'sg_asset_type'
                           ]
 
 # left hand side tree view search only kicks in

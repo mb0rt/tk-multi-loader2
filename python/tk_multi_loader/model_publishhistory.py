@@ -46,11 +46,11 @@ class SgPublishHistoryModel(ShotgunModel):
     def load_data(self, sg_data):
         """
         Load the details for the shotgun publish entity described by sg_data.
-        
-        :param sg_data: dictionary describing a publish in shotgun, including all the common 
+
+        :param sg_data: dictionary describing a publish in shotgun, including all the common
                         publish fields.
         """
-        
+
         app = sgtk.platform.current_bundle()
         publish_entity_type = sgtk.util.get_published_file_entity_type(app.sgtk)
 
@@ -64,11 +64,11 @@ class SgPublishHistoryModel(ShotgunModel):
 
         # when we filter out which other publishes are associated with this one,
         # to effectively get the "version history", we look for items
-        # which have the same project, same entity assocation, same name, same type 
+        # which have the same project, same entity assocation, same name, same type
         # and the same task.
         filters = [ ["project", "is", sg_data["project"] ],
                     ["name", "is", sg_data["name"] ],
-                    ["task", "is", sg_data["task"] ],
+                    ["task.Task.step", "is", sg_data["task.Task.step"] ]
                     ["entity", "is", sg_data["entity"] ],
                     [publish_type_field, "is", sg_data[publish_type_field] ],
                   ]
@@ -193,5 +193,3 @@ class SgPublishHistoryModel(ShotgunModel):
         thumb = utils.create_overlayed_user_publish_thumbnail(item.data(SgPublishHistoryModel.PUBLISH_THUMB_ROLE),
                                                               item.data(SgPublishHistoryModel.USER_THUMB_ROLE))
         item.setIcon(QtGui.QIcon(thumb))
-
-
