@@ -135,7 +135,7 @@ class SgPublishListDelegate(PublishDelegate):
         publish_task = sg_data.get( 'task.Task.step', {}).get( 'name' ) or "Unspecified Task"
 
         # -- colors
-        publish_type_color_dict = {'Maya Scene':'#FEAADB', "Alembic Asset":'#FEDFA6', "Maya Material":'#B792E8'}
+        publish_type_color_dict = {'Maya Scene':'#FEAADB', "Alembic Asset":'#FEDFA6', "Maya Material":'#B792E8', 'Alembic Camera':'#97C668', 'Alembic Animation':'#FCBD98', 'Alembic Mesh':'#F0819A'}
 
         publish_type_color  = publish_type_color_dict.get( publish_type, '#FFFFFF' )
         variant_name_color  = '#F6DC1A'
@@ -147,7 +147,7 @@ class SgPublishListDelegate(PublishDelegate):
 
         # --- main text
         if entity_type == 'Shot':
-            main_text = "<span style='color:{variant_color}'>{variant_name}</span> | <B style='color:{task_color}'>{task_name}</B> | <B style='color:{item_color}'>{item_name}</B> | v{version}".format( variant_color=variant_name_color, variant_name=variant_name.upper(), task_color=task_name_color, task_name=publish_task.capitalize(), item_color=item_color, item_name=item_name,  version=version_str )
+            main_text = "<span style='color:{variant_color}'>{variant_name}</span> | <B style='color:{item_color}'>{item_name}</B> | v{version}".format( variant_color=variant_name_color, variant_name=variant_name.upper(), item_color=task_name_color, item_name=item_name,  version=version_str )
 
         elif entity_type == 'Asset':
             main_text = "<span style='color:{variant_color}'>{variant_name}</span> | <B style='color:{task_color}'>{task_name}</B> | v{version}".format( variant_color=variant_name_color, variant_name=variant_name.upper(), task_color=task_name_color, task_name=publish_task.capitalize(), version=version_str )

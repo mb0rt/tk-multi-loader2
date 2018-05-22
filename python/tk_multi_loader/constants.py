@@ -31,7 +31,7 @@ PUBLISHED_FILES_FIELDS = ["name",
                           "version", # note: not supported on TankPublishedFile so always None
                           "version.Version.sg_status_list",
                           "created_by.HumanUser.image",
-                          'upstream_published_files', 'task.Task.step', 'sg_version_type', 'sg_asset_type'
+                          'upstream_published_files', 'task.Task.step', 'sg_version_type', 'sg_asset_type', 'sg_asset.Asset.sg_asset_type'
                           ]
 
 # left hand side tree view search only kicks in
